@@ -38,25 +38,24 @@ public class Controller {
      * Pre: startDen, slutDen, patient og laegemiddel er ikke null
      *
      * @return opretter og returnerer en PN ordination.
+     * @throws Exception 
      */
     public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
-    		Patient patient, Laegemiddel laegemiddel, double antal) {
+    		Patient patient, Laegemiddel laegemiddel, double antal) throws Exception {
 
     	if(!startDen.equals(null) && !slutDen.equals(null) && !patient.equals(null) && !laegemiddel.equals(null)) {
 
 
     		Period p = Period.between(startDen, slutDen);
-    		int days = p.getDays();
+    		int days = p.getDays() + 1;
 
     		if(days < 0) {
     			throw new IllegalArgumentException("Negativt antal dage");
     		}
-    		
-    		
     		return new PN(startDen, slutDen, patient, laegemiddel, antal);
     	}
     	else {
-    		return null;
+    		throw new Exception("Du mangler noget information");
     	}
     }
     
@@ -178,7 +177,7 @@ public class Controller {
         return lm;
     }
     
-    public void createSomeObjects() {
+    public void createSomeObjects() throws Exception {
         opretPatient("121256-0512", "Jane Jensen", 63.4);
         opretPatient("070985-1153", "Finn Madsen", 83.2);
         opretPatient("050972-1233", "Hans Jørgensen", 89.4);
@@ -191,13 +190,10 @@ public class Controller {
         opretLaegemiddel("Methotrexat", 0.01, 0.015, 0.02, "Styk");
         
         opretPNOrdination(LocalDate.of(2015, 1, 1), LocalDate.of(2015, 1, 12),
-            storage.getAllPatienter().get(0), storage.getAllLaegemidler()
-                .get(1),
-            123);
+            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(1),123);
         
         opretPNOrdination(LocalDate.of(2015, 2, 12), LocalDate.of(2015, 2, 14),
-            storage.getAllPatienter().get(0), storage.getAllLaegemidler()
-                .get(0),
+            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(0),
             3);
         
         opretPNOrdination(LocalDate.of(2015, 1, 20), LocalDate.of(2015, 1, 25),
