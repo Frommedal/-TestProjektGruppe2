@@ -15,8 +15,7 @@ public class DagligFast extends Ordination {
     
 	public DagligFast(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 	        double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
-		super(startDen, slutDen);
-		this.patient = patient;
+		super(startDen, slutDen, patient);
 		this.laegemiddel = laegemiddel;
 		this.morgenAntal = morgenAntal;
 		this.middagAntal = middagAntal;
