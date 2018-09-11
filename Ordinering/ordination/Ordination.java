@@ -6,11 +6,15 @@ import java.time.temporal.ChronoUnit;
 public abstract class Ordination {
     private LocalDate startDen;
     private LocalDate slutDen;
+    private Patient patient;
 
     // TODO Link til Laegemiddel
-    public Ordination(LocalDate startDen, LocalDate slutDen) {
+    public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient) {
     	this.startDen = startDen;
     	this.slutDen = slutDen;
+    	this.patient = patient;
+    	
+    	patient.addOrdination(this);
     }
 
     public LocalDate getStartDen() {
@@ -21,7 +25,11 @@ public abstract class Ordination {
         return slutDen;
     }
 
-    /**
+    public Patient getPatient() {
+		return patient;
+	}
+
+	/**
      * Antal hele dage mellem startdato og slutdato. Begge dage inklusive.
      * @return antal dage ordinationen gælder for
      */
