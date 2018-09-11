@@ -9,17 +9,17 @@ import ordination.DagligSkaev;
 import ordination.Ordination;
 import ordination.PN;
 import ordination.Patient;
-import service.Service;
+import service.Controller;
 
 public class VisOrdinationPane extends GridPane {
 	private ListView<Patient> lstPatient = new ListView<>();
 	private ListView<Ordination> lstOrdination = new ListView<>();
 	private OrdinationDetailsPane ordinationDetailsPane = new OrdinationDetailsPane();
 
-	private Service service;
+	private Controller service;
 
 	public VisOrdinationPane() {
-		service = Service.getService();
+		service = Controller.getService();
 
 		this.setPadding(new Insets(20));
 		this.setHgap(20);

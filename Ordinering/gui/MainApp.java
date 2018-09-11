@@ -7,10 +7,10 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import service.Service;
+import service.Controller;
 
 public class MainApp extends Application {
-	private Service service;
+	private Controller service;
 
 	public static void main(String[] args) {
 		Application.launch(args);
@@ -18,7 +18,7 @@ public class MainApp extends Application {
 
 	@Override
 	public void init() {
-		service = Service.getService();
+		service = Controller.getService();
 		service.createSomeObjects();
 	}
 

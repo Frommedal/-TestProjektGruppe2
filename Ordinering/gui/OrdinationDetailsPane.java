@@ -13,7 +13,7 @@ import ordination.DagligSkaev;
 import ordination.Dosis;
 import ordination.Ordination;
 import ordination.PN;
-import service.Service;
+import service.Controller;
 
 public class OrdinationDetailsPane extends GridPane {
     private TextField txtStarttid, txtSluttid, txtLaegemiddel, txtDoegndosis,
@@ -36,10 +36,10 @@ public class OrdinationDetailsPane extends GridPane {
 
     private Label lblError = new Label();
 
-    private Service service;
+    private Controller service;
 
     public OrdinationDetailsPane() {
-        service = Service.getService();
+        service = Controller.getService();
         setHgap(20);
         setVgap(10);
         setGridLinesVisible(false);

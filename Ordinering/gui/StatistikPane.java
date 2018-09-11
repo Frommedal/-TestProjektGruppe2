@@ -7,17 +7,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import ordination.Laegemiddel;
-import service.Service;
+import service.Controller;
 
 public class StatistikPane extends GridPane {
 	private TextField ordinationerPerVægtPerLægemiddel = new TextField();
 	private TextField txfVægtFra = new TextField();
 	private TextField txfVægtTil = new TextField();
 	private ComboBox<Laegemiddel> lstLægemidler = new ComboBox<Laegemiddel>();
-	private Service service;
+	private Controller service;
 
 	public StatistikPane() {
-		service = Service.getService();
+		service = Controller.getService();
 		this.setPadding(new Insets(20));
 		this.setHgap(20);
 		this.setVgap(10);

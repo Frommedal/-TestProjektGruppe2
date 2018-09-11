@@ -12,7 +12,7 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import ordination.Laegemiddel;
 import ordination.Patient;
-import service.Service;
+import service.Controller;
 
 public class OpretOrdinationPane extends GridPane {
 
@@ -25,11 +25,11 @@ public class OpretOrdinationPane extends GridPane {
 	private Button btnOpret = new Button("Opret ordination");
 	private Label lblError;
 
-	private Service service;
+	private Controller service;
 
 	public OpretOrdinationPane() {
 
-		service = Service.getService();
+		service = Controller.getService();
 
 		this.setPadding(new Insets(20));
 		this.setHgap(20);
