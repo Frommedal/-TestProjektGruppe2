@@ -3,12 +3,15 @@ package ordination;
 import java.time.LocalDate;
 
 public class PN extends Ordination{
-    private double antalEnheder;
-
+    private Laegemiddel laegmiddel;
+    private double antal;
 
     
     public PN(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, double antal) {
     	super(startDen, slutDen, patient);
+    	
+    	this.antal = antal;
+    	this.laegmiddel = laegemiddel;
     	
     }
 
@@ -44,8 +47,8 @@ public class PN extends Ordination{
         return-1;
     }
 
-    public double getAntalEnheder() {
-        return antalEnheder;
+    public double getAntal() {
+        return antal;
     }
     
 	@Override
