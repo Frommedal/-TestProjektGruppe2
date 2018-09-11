@@ -2,6 +2,7 @@ package service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
 import java.util.List;
 
 import ordination.DagligFast;
@@ -38,9 +39,22 @@ public class Controller {
      * @return opretter og returnerer en PN ordination.
      */
     public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
-        Patient patient, Laegemiddel laegemiddel, double antal) {
-        // TODO
-        return null;
+    		Patient patient, Laegemiddel laegemiddel, double antal) {
+
+    	if(!startDen.equals(null) && !slutDen.equals(null) && !patient.equals(null) && !laegemiddel.equals(null)) {
+
+
+    		Period p = Period.between(startDen, slutDen);
+    		int days = p.getDays();
+
+    		if(days < 0) {
+    			throw new IllegalArgumentException("Negativt antal dage");
+    		}
+    		return new PN(startDen, slutDen, patient, laegemiddel, antal);
+    	}
+    	else {
+    		return null;
+    	}
     }
     
     /**
