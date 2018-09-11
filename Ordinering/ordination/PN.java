@@ -2,8 +2,15 @@ package ordination;
 
 import java.time.LocalDate;
 
-public class PN {
+public class PN extends Ordination{
 
+	
+	public PN(LocalDate startDen, LocalDate slutDen) {
+		super(startDen, slutDen);
+		
+		
+	}
+	
     private double antalEnheder;
 
     /**
@@ -41,5 +48,11 @@ public class PN {
     public double getAntalEnheder() {
         return antalEnheder;
     }
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
