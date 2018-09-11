@@ -15,8 +15,7 @@ public class DagligFast extends Ordination {
     
 	public DagligFast(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
 	        double morgenAntal, double middagAntal, double aftenAntal, double natAntal) {
-		this.startDen = startDen;
-		this.slutDen = slutDen;
+		super(startDen, slutDen);
 		this.patient = patient;
 		this.laegemiddel = laegemiddel;
 		this.morgenAntal = morgenAntal;
@@ -87,6 +86,24 @@ public class DagligFast extends Ordination {
 
 	public void setNatAntal(double natAntal) {
 		this.natAntal = natAntal;
+	}
+
+	@Override
+	public double samletDosis() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double doegnDosis() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

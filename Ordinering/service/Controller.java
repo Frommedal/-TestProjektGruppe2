@@ -2,6 +2,7 @@ package service;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import ordination.DagligFast;
@@ -52,8 +53,20 @@ public class Controller {
         LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
         double morgenAntal, double middagAntal, double aftenAntal,
         double natAntal) {
-        // TODO
-        return null;
+    	
+    	DagligFast dagligfast = new DagligFast(startDen, slutDen, patient, laegemiddel, morgenAntal, middagAntal, aftenAntal, natAntal);
+        
+    	int daysBetween = (int) ChronoUnit.DAYS.between(startDen, slutDen) + 1;
+    	
+    	if (daysBetween < 1) {
+    		throw new IllegalArgumentException("Slutdato kan ikke være efter start");
+    	} else {
+    		storage.addPatient();
+    		
+    		return dagligfast;
+    	}
+    	
+        
     }
     
     /**
