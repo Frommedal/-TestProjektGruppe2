@@ -89,7 +89,7 @@ public class DagligFast extends Ordination {
 
 	@Override
 	public double samletDosis() {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 

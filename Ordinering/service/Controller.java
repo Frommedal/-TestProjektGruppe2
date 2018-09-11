@@ -77,7 +77,7 @@ public class Controller {
     	if (daysBetween < 1) {
     		throw new IllegalArgumentException("Slutdato kan ikke være efter start");
     	} else {
-    		patient.addOrdination(dagligFast);;
+    		patient.addOrdination(dagligFast);
     		
     		return dagligFast;
     	}
