@@ -7,7 +7,7 @@ public class Patient {
     private String navn;
     private double vaegt;
     private ArrayList<Ordination> ordinationer = new ArrayList<>();
-
+    
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;

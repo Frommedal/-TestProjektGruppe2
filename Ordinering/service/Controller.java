@@ -190,7 +190,7 @@ public class Controller {
         opretLaegemiddel("Methotrexat", 0.01, 0.015, 0.02, "Styk");
         
         opretPNOrdination(LocalDate.of(2015, 1, 1), LocalDate.of(2015, 1, 12),
-            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(1),123);
+            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(1), 123);
         
         opretPNOrdination(LocalDate.of(2015, 2, 12), LocalDate.of(2015, 2, 14),
             storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(0),
@@ -209,6 +209,9 @@ public class Controller {
         opretDagligFastOrdination(LocalDate.of(2015, 1, 10),
             LocalDate.of(2015, 1, 12), storage.getAllPatienter().get(1),
             storage.getAllLaegemidler().get(1), 2, -1, 1, -1);
+        
+        opretDagligFastOrdination(LocalDate.of(2015, 1, 5), LocalDate.of(2015, 2, 5), 
+        		storage.getAllPatienter().get(2), storage.getAllLaegemidler().get(3), 2, 3, 1, 1);
         
         LocalTime[] kl = { LocalTime.of(12, 0), LocalTime.of(12, 40),
             LocalTime.of(16, 0), LocalTime.of(18, 45) };
