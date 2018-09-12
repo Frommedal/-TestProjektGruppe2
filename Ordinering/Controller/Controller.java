@@ -183,6 +183,9 @@ public class Controller {
         opretPatient("050972-1233", "Hans Jørgensen", 89.4);
         opretPatient("011064-1522", "Ulla Nielsen", 59.9);
         opretPatient("090149-2529", "Ib Hansen", 87.7);
+        opretPatient("020292-1275", "Fido Lassen", 25.0);
+        opretPatient("111182-1231", "Dorit Svendsen", 121.0);
+        opretPatient("123259-2211", "Kennet Najbjerg", -1.0);
         
         opretLaegemiddel("Acetylsalicylsyre", 0.1, 0.15, 0.16, "Styk");
         opretLaegemiddel("Paracetamol", 1, 1.5, 2, "Ml");
@@ -193,18 +196,13 @@ public class Controller {
             storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(1), 123);
         
         opretPNOrdination(LocalDate.of(2015, 2, 12), LocalDate.of(2015, 2, 14),
-            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(0),
-            3);
+            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(0), 3);
         
         opretPNOrdination(LocalDate.of(2015, 1, 20), LocalDate.of(2015, 1, 25),
-            storage.getAllPatienter().get(3), storage.getAllLaegemidler()
-                .get(2),
-            5);
+            storage.getAllPatienter().get(3), storage.getAllLaegemidler().get(2), 5);
         
         opretPNOrdination(LocalDate.of(2015, 1, 1), LocalDate.of(2015, 1, 12),
-            storage.getAllPatienter().get(0), storage.getAllLaegemidler()
-                .get(1),
-            123);
+            storage.getAllPatienter().get(0), storage.getAllLaegemidler().get(1), 123);
         
         opretDagligFastOrdination(LocalDate.of(2015, 1, 10),
             LocalDate.of(2015, 1, 12), storage.getAllPatienter().get(1),
