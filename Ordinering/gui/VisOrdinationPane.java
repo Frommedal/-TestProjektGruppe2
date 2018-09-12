@@ -1,5 +1,6 @@
 package gui;
 
+import Controller.Controller;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -9,7 +10,6 @@ import ordination.DagligSkaev;
 import ordination.Ordination;
 import ordination.PN;
 import ordination.Patient;
-import service.Controller;
 
 public class VisOrdinationPane extends GridPane {
 	private ListView<Patient> lstPatient = new ListView<>();

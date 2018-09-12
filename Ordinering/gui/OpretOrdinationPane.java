@@ -1,5 +1,6 @@
 package gui;
 
+import Controller.Controller;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
@@ -12,7 +13,6 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.paint.Color;
 import ordination.Laegemiddel;
 import ordination.Patient;
-import service.Controller;
 
 public class OpretOrdinationPane extends GridPane {
 

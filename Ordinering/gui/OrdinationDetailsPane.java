@@ -2,6 +2,7 @@ package gui;
 
 import java.time.LocalDate;
 
+import Controller.Controller;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -13,7 +14,6 @@ import ordination.DagligSkaev;
 import ordination.Dosis;
 import ordination.Ordination;
 import ordination.PN;
-import service.Controller;
 
 public class OrdinationDetailsPane extends GridPane {
     private TextField txtStarttid, txtSluttid, txtLaegemiddel, txtDoegndosis,
