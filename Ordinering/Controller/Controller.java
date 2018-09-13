@@ -67,10 +67,7 @@ public class Controller {
      * slutDato kastes en IllegalArgumentException og ordinationen oprettes ikke
      * Pre: startDen, slutDen, patient og laegemiddel er ikke null
      */
-    public DagligFast opretDagligFastOrdination(LocalDate startDen,
-        LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
-        double morgenAntal, double middagAntal, double aftenAntal,
-        double natAntal) {
+    public DagligFast opretDagligFastOrdination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, double morgenAntal, double middagAntal, double aftenAntal,double natAntal) {
     	
     	DagligFast dagligFast = new DagligFast(startDen, slutDen, patient, laegemiddel, morgenAntal, middagAntal, aftenAntal, natAntal);
         
@@ -124,8 +121,11 @@ public class Controller {
      * IllegalArgumentException
      * Pre: ordination og dato er ikke null
      */
-    public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-        if 
+    public void ordinationPNAnvendt(PN ordination, LocalDate dato) throws IllegalArgumentException {
+        if(!ordination.equals(null) && !dato.equals(null)) {
+        	
+        	
+        }
     }
     
     /**
