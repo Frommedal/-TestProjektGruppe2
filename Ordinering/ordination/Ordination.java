@@ -30,6 +30,12 @@ public abstract class Ordination {
     public Patient getPatient() {
 		return patient;
 	}
+    
+    
+
+	public Laegemiddel getLaegemiddel() {
+		return laegemiddel;
+	}
 
 	/**
      * Antal hele dage mellem startdato og slutdato. Begge dage inklusive.

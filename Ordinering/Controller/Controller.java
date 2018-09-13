@@ -42,7 +42,7 @@ public class Controller {
      * @throws Exception 
      */
     public PN opretPNOrdination(LocalDate startDen, LocalDate slutDen,
-    		Patient patient, Laegemiddel laegemiddel, double antal) throws Exception {
+    		Patient patient, Laegemiddel laegemiddel, double antal) throws IllegalArgumentException {
 
     	if(!startDen.equals(null) && !slutDen.equals(null) && !patient.equals(null) && !laegemiddel.equals(null)) {
 
@@ -58,7 +58,7 @@ public class Controller {
     		return pn;
     	}
     	else {
-    		throw new Exception("Du mangler noget information");
+    		throw new IllegalArgumentException("Du mangler noget information");
     	}
     }
     
@@ -95,7 +95,7 @@ public class Controller {
      * Pre: startDen, slutDen, patient og laegemiddel er ikke null
      * @throws Exception 
      */
-    public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,LocalTime[] klokkeSlet, double[] antalEnheder) throws Exception {
+    public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,LocalTime[] klokkeSlet, double[] antalEnheder) throws IllegalArgumentException {
         
     	if(!startDen.equals(null) && !slutDen.equals(null) && !patient.equals(null) && !laegemiddel.equals(null)) {
 
@@ -111,7 +111,7 @@ public class Controller {
             return d;
     	}
     	else {
-    		throw new Exception("Du mangler noget information");
+    		throw new IllegalArgumentException("Du mangler noget information");
     	}
     	
     	
@@ -197,7 +197,7 @@ public class Controller {
         return lm;
     }
     
-    public void createSomeObjects() throws Exception {
+    public void createSomeObjects() {
         opretPatient("121256-0512", "Jane Jensen", 63.4);
         opretPatient("070985-1153", "Finn Madsen", 83.2);
         opretPatient("050972-1233", "Hans Jørgensen", 89.4);
