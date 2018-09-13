@@ -1,14 +1,17 @@
 package ordination;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 
 public class PN extends Ordination{
     private double antal;
-
+    private ArrayList<LocalDate> dosisGivetDag = new ArrayList<>();
     
     public PN(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel, double antal) {
     	super(startDen, slutDen, patient, laegemiddel);
     	this.antal = antal;
+    	
     }
 
     /**
@@ -19,19 +22,29 @@ public class PN extends Ordination{
      * @return
      */
     public boolean givDosis(LocalDate givesDen) {
-        // TODO
+        if(givesDen.isEqual(getStartDen()) || givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen()) || givesDen.isEqual(getSlutDen())) {
+
+        	dosisGivetDag.add(givesDen);
+        	return true;
+        }
         return false;   
     }
+    
+    
 
-    public double doegnDosis() {
-        // TODO
-        return 0.0;
+    public int getAntalEnheder() {
+		return dosisGivetDag.size();
+	}
+
+	public double doegnDosis() {
+        return (dosisGivetDag.size() * antal) / (int) ChronoUnit.DAYS.between(getStartDen(), getSlutDen());
     }
 
 
     public double samletDosis() {
-        // TODO
-        return 0.0;
+        
+    	
+        return dosisGivetDag.size() * antal;
     }
 
     /**
@@ -39,8 +52,7 @@ public class PN extends Ordination{
      * @return
      */
     public int getAntalGangeGivet() {
-        // TODO
-        return-1;
+        return dosisGivetDag.size();
     }
 
     public double getAntal() {
@@ -49,8 +61,7 @@ public class PN extends Ordination{
     
 	@Override
 	public String getType() {
-		// TODO Auto-generated method stub
-		return null;
+		return "PN";
 	}
 
 }
