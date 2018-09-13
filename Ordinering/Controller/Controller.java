@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 import java.time.Period;
 import java.util.List;
 
+import javafx.geometry.Orientation;
 import ordination.DagligFast;
 import ordination.DagligSkaev;
 import ordination.Laegemiddel;
@@ -52,7 +53,9 @@ public class Controller {
     		if(days < 0) {
     			throw new IllegalArgumentException("Negativt antal dage");
     		}
-    		return new PN(startDen, slutDen, patient, laegemiddel, antal);
+    		PN pn = new PN(startDen, slutDen, patient, laegemiddel, antal);
+    		patient.addOrdination(pn);
+    		return pn;
     	}
     	else {
     		throw new Exception("Du mangler noget information");
@@ -90,12 +93,29 @@ public class Controller {
      * Hvis antallet af elementer i klokkeSlet og antalEnheder er forskellige kastes også en IllegalArgumentException.
      *
      * Pre: startDen, slutDen, patient og laegemiddel er ikke null
+     * @throws Exception 
      */
-    public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,
-        LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,
-        LocalTime[] klokkeSlet, double[] antalEnheder) {
-        // TODO
-        return null;
+    public DagligSkaev opretDagligSkaevOrdination(LocalDate startDen,LocalDate slutDen, Patient patient, Laegemiddel laegemiddel,LocalTime[] klokkeSlet, double[] antalEnheder) throws Exception {
+        
+    	if(!startDen.equals(null) && !slutDen.equals(null) && !patient.equals(null) && !laegemiddel.equals(null)) {
+
+
+    		Period p = Period.between(startDen, slutDen);
+    		int days = p.getDays() + 1;
+
+    		if(days < 0) {
+    			throw new IllegalArgumentException("Negativt antal dage");
+    		}
+    		DagligSkaev d = new DagligSkaev(startDen, slutDen, patient, laegemiddel, klokkeSlet, antalEnheder);
+        	patient.addOrdination(d);
+            return d;
+    	}
+    	else {
+    		throw new Exception("Du mangler noget information");
+    	}
+    	
+    	
+    	
     }
     
     /**
@@ -105,7 +125,7 @@ public class Controller {
      * Pre: ordination og dato er ikke null
      */
     public void ordinationPNAnvendt(PN ordination, LocalDate dato) {
-        // TODO
+        //TODO
     }
     
     /**
