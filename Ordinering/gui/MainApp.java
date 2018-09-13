@@ -10,7 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class MainApp extends Application {
-	private Controller service;
+	private Controller controller;
 
 	public static void main(String[] args) {
 		Application.launch(args);
@@ -18,8 +18,8 @@ public class MainApp extends Application {
 
 	@Override
 	public void init() {
-		service = Controller.getService();
-		service.createSomeObjects();
+		controller = Controller.getService();
+		controller.createSomeObjects();
 	}
 
 	@Override
