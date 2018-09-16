@@ -9,7 +9,6 @@ public abstract class Ordination {
     private Patient patient;
     private Laegemiddel laegemiddel;
 
-    // TODO Link til Laegemiddel
     public Ordination(LocalDate startDen, LocalDate slutDen, Patient patient, Laegemiddel laegemiddel) {
     	this.startDen = startDen;
     	this.slutDen = slutDen;

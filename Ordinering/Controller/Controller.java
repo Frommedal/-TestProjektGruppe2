@@ -6,7 +6,6 @@ import java.time.temporal.ChronoUnit;
 import java.time.Period;
 import java.util.List;
 
-import javafx.geometry.Orientation;
 import ordination.DagligFast;
 import ordination.DagligSkaev;
 import ordination.Laegemiddel;
@@ -123,7 +122,12 @@ public class Controller {
      */
     public void ordinationPNAnvendt(PN ordination, LocalDate dato) throws IllegalArgumentException {
         if(!ordination.equals(null) && !dato.equals(null)) {
-        	
+        	if(checkStartFoerSlut(dato, ordination.getSlutDen())) {
+        		ordination.givDosis(dato);
+        	}
+        	else {
+        		throw new IllegalArgumentException("Datoen er ikke inden for den ordinerede tid");
+        	}
         	
         }
     }
@@ -157,6 +161,7 @@ public class Controller {
     public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
         double vægtSlut, Laegemiddel laegemiddel) {
         // TODO
+    	
         return 0;
     }
     

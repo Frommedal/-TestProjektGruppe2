@@ -23,9 +23,12 @@ public class PN extends Ordination{
      */
     public boolean givDosis(LocalDate givesDen) {
         if(givesDen.isEqual(getStartDen()) || givesDen.isAfter(getStartDen()) && givesDen.isBefore(getSlutDen()) || givesDen.isEqual(getSlutDen())) {
-
-        	dosisGivetDag.add(givesDen);
-        	return true;
+        	try {
+        		dosisGivetDag.add(givesDen);
+        		return true;
+        	} catch(IllegalArgumentException e) {
+        		e.printStackTrace();
+        	}
         }
         return false;   
     }
