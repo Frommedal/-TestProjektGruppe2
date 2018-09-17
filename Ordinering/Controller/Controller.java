@@ -9,6 +9,7 @@ import java.util.List;
 import ordination.DagligFast;
 import ordination.DagligSkaev;
 import ordination.Laegemiddel;
+import ordination.Ordination;
 import ordination.PN;
 import ordination.Patient;
 import storage.Storage;
@@ -53,7 +54,7 @@ public class Controller {
     			throw new IllegalArgumentException("Negativt antal dage");
     		}
     		PN pn = new PN(startDen, slutDen, patient, laegemiddel, antal);
-    		patient.addOrdination(pn);
+
     		return pn;
     	}
     	else {
@@ -75,7 +76,7 @@ public class Controller {
     	if (daysBetween < 1) {
     		throw new IllegalArgumentException("Slutdato kan ikke være efter start");
     	} else {
-    		patient.addOrdination(dagligFast);
+    		
     		
     		return dagligFast;
     	}
@@ -103,7 +104,7 @@ public class Controller {
     			throw new IllegalArgumentException("Negativt antal dage");
     		}
     		DagligSkaev d = new DagligSkaev(startDen, slutDen, patient, laegemiddel, klokkeSlet, antalEnheder);
-        	patient.addOrdination(d);
+        	
             return d;
     	}
     	else {
@@ -161,12 +162,22 @@ public class Controller {
     public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
         double vægtSlut, Laegemiddel laegemiddel) {
         
+    	int ordinationer = 0;
+
     	for(Patient p : Controller.getService().getAllPatienter()) {
-    		return 0;
+    		if((p.getVaegt() >= vægtStart && p.getVaegt() < vægtSlut) || (p.getVaegt() > vægtStart && p.getVaegt() <= vægtSlut)) {
+    			
+    			for(Ordination o : p.getOrdinationer()) {
+    				if(o.getLaegemiddel().equals(laegemiddel)) {
+    					ordinationer++;
+    				}
+    			}
+    			
+    		}
     	}
     	
     	
-        return 0;
+        return ordinationer;
     }
     
     public List<Patient> getAllPatienter() {

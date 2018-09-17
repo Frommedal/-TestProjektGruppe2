@@ -21,9 +21,6 @@ public class MainApp extends Application {
 	public void init() {
 		controller = Controller.getService();
 		controller.createSomeObjects();
-		for(Ordination o : controller.getAllPatienter().get(0).getOrdinationer()) {
-			System.out.println(o.getStartDen());
-		}
 	}
 
 	@Override
