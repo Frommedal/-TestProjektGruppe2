@@ -160,7 +160,11 @@ public class Controller {
      */
     public int antalOrdinationerPrVægtPrLægemiddel(double vægtStart,
         double vægtSlut, Laegemiddel laegemiddel) {
-        // TODO
+        
+    	for(Patient p : Controller.getService().getAllPatienter()) {
+    		return 0;
+    	}
+    	
     	
         return 0;
     }
