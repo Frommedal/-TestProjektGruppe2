@@ -46,5 +46,14 @@ public class Storage {
 			laegemidler.add(laegemiddel);
 		}
 	}
+	
+	public Laegemiddel getLaegemmiddel(String navn) {
+		for(Laegemiddel l : laegemidler) {
+			if(l.getNavn().equals(navn)) {
+				return l;
+			}
+		}
+		throw new IndexOutOfBoundsException("Forkert laegemiddel");
+	}
 
 }

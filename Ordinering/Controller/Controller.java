@@ -260,4 +260,8 @@ public class Controller {
             storage.getAllLaegemidler().get(2), kl, an);
     }
     
+    public Laegemiddel getLaegemiddel(String navn) {
+    	return this.storage.getLaegemmiddel(navn);
+    }
+    
 }
