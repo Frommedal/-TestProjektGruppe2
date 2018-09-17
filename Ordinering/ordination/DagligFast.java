@@ -78,7 +78,12 @@ public class DagligFast extends Ordination {
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
+		DagligFast df = (DagligFast) obj;
+		
+		if (df.getStartDen().equals(this.getStartDen()) && df.getSlutDen().equals(this.getSlutDen()) && df.getPatient().equals(this.getPatient()) && 
+				df.getLaegemiddel().equals(this.getLaegemiddel()) && df.getMorgenAntal() == this.getMorgenAntal() && df.getMiddagAntal() == this.getMiddagAntal() && df.getAftenAntal() == this.getAftenAntal() && df.getNatAntal() == this.getNatAntal()) {
+			return true;
+		}
 		return false;
 	}
 	

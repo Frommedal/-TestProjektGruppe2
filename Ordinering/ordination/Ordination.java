@@ -68,7 +68,7 @@ public abstract class Ordination extends Object {
 	public abstract String getType();
 	
 	
-	public abstract boolean equals(Object obj); 
+	//public abstract boolean equals(Object obj); 
 	
 	
 }
