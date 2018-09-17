@@ -75,6 +75,12 @@ public class DagligFast extends Ordination {
 	public String getType() {
 		return "Daglig Fast";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }

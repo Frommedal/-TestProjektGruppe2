@@ -66,5 +66,15 @@ public class PN extends Ordination{
 	public String getType() {
 		return "PN";
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		PN pn = (PN) obj;
+		
+		if(pn.getStartDen().equals(this.getStartDen()) && pn.getSlutDen().equals(this.getSlutDen()) && pn.getPatient().equals(this.getPatient()) && pn.getLaegemiddel().equals(this.getLaegemiddel()) && pn.getAntal() == this.getAntal()){
+			return true;
+		}
+		return false;
+	}
 
 }

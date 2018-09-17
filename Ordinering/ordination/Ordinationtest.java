@@ -1,9 +1,15 @@
 package ordination;
 
 import static org.junit.Assert.*;
-import ordination.Ordination;
+
+import java.time.LocalDate;
+
+import org.junit.Before;
 
 import org.junit.Test;
+
+import Controller.Controller;
+import ordination.Patient;
 
 public class Ordinationtest {
 //	private Patient janeJensen = new Patient("121256-0512", "Jane Jensen", 63.4);
@@ -23,11 +29,44 @@ public class Ordinationtest {
 //	
 //	@Test
 //	public void t123c1() {
-//		b.setGrundpræmie(1000);
-//		double res = b.beregnPræmie(18, true, 0);
-//		System.out.println(b.beregnPræmie(18, true, 0));
+//		b.setGrundprï¿½mie(1000);
+//		double res = b.beregnPrï¿½mie(18, true, 0);
+//		System.out.println(b.beregnPrï¿½mie(18, true, 0));
 //		assertEquals(1187.5, res, 0.001);
 //	}
 //	
 //
-//}
+//
+	
+	Controller c = Controller.getTestService();
+	
+	@Before
+	public void initialiser() {
+		
+		c.createSomeObjects();
+	}
+	
+	@Test
+	public void tc1() {
+		Patient p = null;
+		Laegemiddel l = null;
+		
+		for(Patient y : c.getAllPatienter()) {
+			if(y.getNavn().equals("Jane Jensen")){
+				p = y;
+			}		
+		}
+		
+		for(Laegemiddel y : c.getAllLaegemidler()) {
+			if(y.getNavn().equals("Paracetamol")){
+				l = y;
+			}		
+		}
+		
+		PN g = new PN(LocalDate.of(2015, 1, 1), LocalDate.of(2015, 1, 12), p, l, 123);
+		
+		assertEquals(true, g.equals(c.opretPNOrdination(LocalDate.of(2015, 1, 1), LocalDate.of(2015, 1, 12), p, l, 123)));
+	}
+	
+	
+}

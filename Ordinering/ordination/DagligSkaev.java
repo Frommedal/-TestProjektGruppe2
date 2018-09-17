@@ -52,4 +52,12 @@ public class DagligSkaev extends Ordination {
 	public String getType() {
 		return "Daglig Skæv";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 }

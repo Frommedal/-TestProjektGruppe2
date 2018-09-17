@@ -8,7 +8,6 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import ordination.Ordination;
 
 public class MainApp extends Application {
 	private Controller controller;
